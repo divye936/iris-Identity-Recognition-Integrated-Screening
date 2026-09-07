@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+venv/
+env/
+.env
+
+# React / Node
+node_modules/
+dist/
+.DS_Store
+
+# Machine Learning Weights
+*.h5
+*.pt
+.deepface/
+
+# App Temp Files
+temp_*.jpg
+*.log
