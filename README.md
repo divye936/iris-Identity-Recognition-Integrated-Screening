@@ -1,29 +1,28 @@
 <div align="center">
 
-# 🛡️ IRIS: Identity Recognition & Integrated Screening
+# 🛡️ IRIS
+### Identity Recognition & Integrated Screening
 
-### Next-Generation Dual-Stream Biometric Border Security System
-
-<p>
-  <strong>High-Fidelity AI-Assisted Identity Screening Prototype</strong>
-</p>
+**Next-Generation Dual-Stream Biometric Border Security System**
 
 <p>
-  Built for <strong>Smart India Hackathon (SIH)</strong>
+  A high-fidelity AI-powered identity screening prototype developed for
+  <strong>Smart India Hackathon (SIH)</strong>.
 </p>
 
-<br />
+<br>
 
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![React](https://img.shields.io/badge/React-18+-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
+![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![OpenCV](https://img.shields.io/badge/OpenCV-4.x-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
 ![DeepFace](https://img.shields.io/badge/DeepFace-ArcFace-FF6B35?style=for-the-badge)
+![WebSocket](https://img.shields.io/badge/WebSocket-Real--Time-0A0A0A?style=for-the-badge)
 
-<br />
+<br>
 
-**Document Forensics + Face Verification + Live Camera + Real-Time Risk Intelligence**
+**Static Identity Document + Live Biometric Verification + Forensic Analysis**
 
 </div>
 
@@ -31,74 +30,120 @@
 
 # 📋 Table of Contents
 
-- [Project Overview](#-project-overview)
+- [Overview](#-overview)
 - [Problem Statement](#-problem-statement)
-- [Our Solution](#-our-solution)
-- [Why IRIS?](#-why-iris)
+- [Solution](#-solution)
 - [Key Features](#-key-features)
 - [System Architecture](#-system-architecture)
-- [End-to-End Workflow](#-end-to-end-workflow)
+- [Processing Pipeline](#-processing-pipeline)
 - [Core Modules](#-core-modules)
-  - [Identity Document Processing](#1--identity-document-processing)
-  - [Error Level Analysis](#2--error-level-analysis-ela)
-  - [Biometric Face Verification](#3--biometric-face-verification)
-  - [Risk Fusion Engine](#4--risk-fusion-engine)
-  - [Real-Time Telemetry](#5--real-time-telemetry)
 - [Forensic Risk Score](#-forensic-risk-score)
-- [Tactical UI & Dashboard](#-tactical-ui--dashboard)
 - [Technology Stack](#-technology-stack)
-- [Project Structure](#-project-structure)
-- [Local Deployment](#-local-deployment)
-- [Backend Setup](#-backend-setup)
-- [Frontend Setup](#-frontend-setup)
-- [Running the Application](#-running-the-application)
-- [API Documentation](#-api-documentation)
-- [API Reference](#-api-reference)
-- [WebSocket API](#-websocket-api)
-- [Demo Scenarios](#-demo-scenarios)
+- [Dashboard](#-dashboard)
+- [Installation & Execution](#-installation--execution)
 - [Security & Privacy](#-security--privacy)
-- [Apple Silicon Support](#-apple-silicon-support)
-- [OpenCV Compatibility](#-opencv-compatibility)
-- [Troubleshooting](#-troubleshooting)
-- [Known Limitations](#-known-limitations)
-- [Future Scope](#-future-scope)
-- [Potential Applications](#-potential-applications)
-- [Production Roadmap](#-production-roadmap)
-- [Responsible AI](#-responsible-ai)
-- [Project Status](#-project-status)
-- [Smart India Hackathon](#-smart-india-hackathon)
-- [License](#-license)
-- [Vision](#-vision)
+- [Team / SIH](#-smart-india-hackathon)
 
 ---
 
-# 📋 Project Overview
+# 🧭 Overview
 
-**IRIS — Identity Recognition & Integrated Screening** is a high-fidelity Minimum Viable Product (MVP) designed for identity screening in security-sensitive environments such as border checkpoints, immigration counters, airports, government facilities, and controlled-access locations.
+**IRIS — Identity Recognition & Integrated Screening** is a high-fidelity biometric and document screening prototype designed for security-sensitive identity verification environments such as:
 
-The system addresses an important limitation of conventional document verification:
+* Border checkpoints
+* Immigration counters
+* Airport security
+* Government identity verification centers
+* High-security access control points
 
-> A document can be genuine while the person presenting it may not be the legitimate owner.
+Traditional identity verification often treats a document and a person as two separate verification problems. IRIS combines both streams into a single workflow, simultaneously analyzing the document, the live traveler, potential document tampering, and facial biometric similarity.
 
-IRIS therefore combines two primary information streams:
+---
 
-```text
-                    IRIS
-                     │
-          ┌──────────┴──────────┐
-          │                     │
-          ▼                     ▼
-   Identity Document       Live Person
-          │                     │
-          ▼                     ▼
-   Forensic Analysis       Face Analysis
-          │                     │
-          └──────────┬──────────┘
-                     ▼
-              Risk Fusion
-                     │
-                     ▼
-          Forensic Risk Score
-                     │
-                     ▼
-            Operator Dashboard
+# 🎯 Problem Statement
+
+Identity fraud at checkpoints can involve several attack vectors:
+
+### 1. Document Forgery
+A counterfeit or modified identity document may contain altered photographs, modified text, or digitally manipulated regions.
+
+### 2. Digital Tampering
+An attacker may digitally manipulate a document image before submitting it via image splicing, region replacement, or JPEG compression manipulation.
+
+### 3. Physical Impersonation
+A legitimate identity document may belong to one person while another individual attempts to use it, creating a critical mismatch:
+`Valid Document + Wrong Person = Identity Fraud`
+
+---
+
+# 💡 Solution
+
+IRIS neutralizes these threat vectors by deploying a **Dual-Stream Authentication Engine**. By forcing a live physical capture alongside the static document scan, the system mathematically links the physical presenter to the digital credential. 
+
+---
+
+# ✨ Key Features
+
+* **Dual-Stream Processing:** Synchronized ingestion of static P<IND Passport scans and live `mediaDevices` HTML5 canvas snapshots.
+* **Error Level Analysis (ELA):** Mathematical detection of localized JPEG compression anomalies to flag digital splicing.
+* **Biometric Intersection:** Utilizes `DeepFace`/`ArcFace` neural networks to map facial geometry and compute cosine distance.
+* **Dynamic Tactical UI:** React-based dashboard featuring real-time cardiovascular mock-telemetry and instant threat-level escalation.
+
+---
+
+# 🧠 System Architecture
+
+The application is built on an isolated, local execution model to ensure zero-trust compliance for highly sensitive biometric data.
+
+| Component | Technology | Responsibility |
+| :--- | :--- | :--- |
+| **Frontend UI** | React, TypeScript, Tailwind | Renders the tactical dashboard and captures HTML5 canvas frames. |
+| **Backend Engine** | FastAPI, Python, Uvicorn | Orchestrates ML pipelines and physical file I/O operations. |
+| **Vision/ML** | OpenCV, DeepFace, TensorFlow | Executes facial mapping (ArcFace) and forensic compression algorithms. |
+
+---
+
+# 🔬 Processing Pipeline & Core Modules
+
+1. **Ingestion:** Securely receives multipart/form-data containing the static ID and live webcam frame.
+2. **Standardization:** Normalizes color spaces, resolutions, and executes MTCNN face detection/cropping.
+3. **Forensic Analysis (ELA):** Resaves images at a known quality rate and calculates pixel-level differentiation to highlight manipulated boundary artifacts.
+4. **Biometric Verification:** Extracts 512-dimensional facial embeddings and calculates cosine similarity.
+5. **Score Fusion:** Aggregates all anomalies into the master Forensic Risk Score (FRS).
+
+---
+
+# 📊 Forensic Risk Score (FRS)
+
+The FRS is the ultimate output of the IRIS pipeline. It ranges from **0.0 to 1.0 (0% to 100% Risk)**.
+
+* **0.00 – 0.35:** ✅ **CLEAR.** High biometric match, no forensic anomalies detected.
+* **0.36 – 0.65:** ⚠️ **WARNING.** Minor anomalies detected (e.g., poor lighting, slight document compression artifacts). Manual review advised.
+* **0.66 – 1.00:** 🚨 **ESCALATE.** Severe mismatch or confirmed digital splicing. Immediate intervention required.
+
+---
+
+# 🖥️ Dashboard
+
+The system features a dynamic React-based dashboard designed for high-stress border environments.
+
+<div align="center">
+  <img width="1511" height="780" alt="dashboard" src="https://github.com/user-attachments/assets/24af1ff4-1408-48b5-a2a3-f860db7317d3" />
+</div>
+
+---
+
+# 🚀 Installation & Execution
+
+### 1. Initialize the Screening Engine (Backend)
+```bash
+cd backend
+source venv/bin/activate
+uvicorn app.main:app --reload
+
+
+### 2. Launch the Tactical Dashboard (Frontend)
+```bash
+cd frontend
+npm install
+npm run dev
