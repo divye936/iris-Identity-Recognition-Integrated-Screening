@@ -10,24 +10,24 @@
 
 <br />
 
-<img width="1511" height="780" alt="dashboard" src="https://github.com/user-attachments/assets/24af1ff4-1408-48b5-a2a3-f860db7317d3" />
-
-
 ## 📋 Project Overview
 Developed as a high-fidelity Minimum Viable Product (MVP) for the Smart India Hackathon (SIH), **IRIS** bridges the gap between static document verification and physical liveness. By simultaneously processing an uploaded identity document and a live webcam feed, the system calculates a unified **Forensic Risk Score (FRS)** to instantly flag potential forgery, digital tampering, or physical impersonation at border checkpoints.
 
-## ✨ Core Features
+## 🧠 System Architecture & Core Features
+The application runs entirely on local hardware (optimized for Apple Silicon / M-Series via explicit memory-buffer processing), ensuring sensitive biometric data never leaves the checkpoint kiosk. 
+
 * **Dual-Stream Processing:** Synchronized ingestion of static P<IND Passport scans and live `mediaDevices` HTML5 canvas snapshots.
 * **Error Level Analysis (ELA):** Mathematical detection of localized JPEG compression block anomalies to identify digital splicing and deep-fake injection.
 * **Biometric Intersection:** Utilizes `DeepFace` / `ArcFace` neural networks to map facial geometry and compute cosine distance between the document portrait and the live traveler.
-* **Dynamic Tactical UI:** React-based dashboard featuring real-time cardiovascular mock-telemetry, forensic heatmaps, and instant threat-level escalation.
 
-## 🧠 System Architecture
-The application runs entirely on local hardware (optimized for Apple Silicon / M-Series via explicit memory-buffer processing), ensuring sensitive biometric data never leaves the checkpoint kiosk. 
+---
 
-* **Frontend:** React, TypeScript, Tailwind CSS, Lucide Icons.
-* **Backend:** FastAPI, Python, Uvicorn.
-* **ML / Vision:** OpenCV, Pillow, DeepFace (ArcFace backend), TensorFlow Keras.
+## 🖥️ Tactical UI & Dashboard
+The system features a dynamic React-based dashboard designed for high-stress border environments. It includes real-time cardiovascular mock-telemetry, forensic heatmaps, and instant threat-level escalation indicators.
+
+<div align="center">
+  <img width="1511" height="780" alt="dashboard" src="https://github.com/user-attachments/assets/24af1ff4-1408-48b5-a2a3-f860db7317d3" />
+</div>
 
 ---
 
