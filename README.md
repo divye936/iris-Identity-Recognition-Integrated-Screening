@@ -1,19 +1,46 @@
-# 🛡️ IRIS: Identity Recognition & Integrated Screening
+<div align="center">
+  <h1>🛡️ IRIS: Identity Recognition & Integrated Screening</h1>
+  <p><strong>Next-Generation Dual-Stream Biometric Border Security System</strong></p>
+  
+  ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+  ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
+  ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+  ![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
+</div>
 
-A high-fidelity, dual-stream biometric border security dashboard built for SIH. This system transitions from static document scanning to a live-verification pipeline, verifying document authenticity against a live traveler.
+<br />
 
-![IRIS Dashboard Preview](assets/dashboard.png)
+<img width="1511" height="780" alt="dashboard" src="https://github.com/user-attachments/assets/24af1ff4-1408-48b5-a2a3-f860db7317d3" />
 
-## Core Architecture
-* **Frontend:** React/TypeScript with live `mediaDevices` integration and automatic HTML5 Canvas frame-capture.
-* **Backend:** FastAPI pipeline executing direct memory-buffer tensor operations.
-* **Biometrics:** `DeepFace`/`ArcFace` neural network mapping facial geometry via Cosine distance.
-* **Forensics:** Error Level Analysis (ELA) script detecting localized JPEG compression anomalies to flag digital splicing.
-* **Risk Fusion:** Aggregates ELA and biometric mismatch scores into a unified Forensic Risk Score (FRS).
 
-## Local Execution
-**1. Initialize Screening Engine (Backend)**
+## 📋 Project Overview
+Developed as a high-fidelity Minimum Viable Product (MVP) for the Smart India Hackathon (SIH), **IRIS** bridges the gap between static document verification and physical liveness. By simultaneously processing an uploaded identity document and a live webcam feed, the system calculates a unified **Forensic Risk Score (FRS)** to instantly flag potential forgery, digital tampering, or physical impersonation at border checkpoints.
+
+## ✨ Core Features
+* **Dual-Stream Processing:** Synchronized ingestion of static P<IND Passport scans and live `mediaDevices` HTML5 canvas snapshots.
+* **Error Level Analysis (ELA):** Mathematical detection of localized JPEG compression block anomalies to identify digital splicing and deep-fake injection.
+* **Biometric Intersection:** Utilizes `DeepFace` / `ArcFace` neural networks to map facial geometry and compute cosine distance between the document portrait and the live traveler.
+* **Dynamic Tactical UI:** React-based dashboard featuring real-time cardiovascular mock-telemetry, forensic heatmaps, and instant threat-level escalation.
+
+## 🧠 System Architecture
+The application runs entirely on local hardware (optimized for Apple Silicon / M-Series via explicit memory-buffer processing), ensuring sensitive biometric data never leaves the checkpoint kiosk. 
+
+* **Frontend:** React, TypeScript, Tailwind CSS, Lucide Icons.
+* **Backend:** FastAPI, Python, Uvicorn.
+* **ML / Vision:** OpenCV, Pillow, DeepFace (ArcFace backend), TensorFlow Keras.
+
+---
+
+## 🚀 Local Deployment Guide
+
+### 1. Initialize the Screening Engine (Backend)
+The backend requires an isolated virtual environment and runs a local Uvicorn server on port 8000.
 ```bash
+# Navigate to the backend directory
 cd backend
+
+# Activate the virtual environment
 source venv/bin/activate
+
+# Launch the FastAPI server with hot-reloading
 uvicorn app.main:app --reload
