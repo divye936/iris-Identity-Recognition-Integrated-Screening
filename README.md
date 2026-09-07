@@ -136,6 +136,8 @@ The system features a dynamic React-based dashboard designed for high-stress bor
 # 🚀 Installation & Execution
 
 ### 1. Initialize the Screening Engine (Backend)
+### 2. Launch the Tactical Dashboard (Frontend)
+### 3. Alternative UI (Rapid Testing)
 ```bash
 cd backend
 source venv/bin/activate
@@ -147,3 +149,7 @@ uvicorn app.main:app --reload
 cd frontend
 npm install
 npm run dev
+
+###3. Alternative UI (Rapid Testing)
+# Run from the root directory
+streamlit run streamlit_app.py
